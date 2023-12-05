@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoNetIECA.Server", "ProyectoNetIECA.Server\ProyectoNetIECA.Server.csproj", "{C312E548-9E7D-4D5B-B2F4-E513390F5F62}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "proyectonetieca.client", "proyectonetieca.client\proyectonetieca.client.esproj", "{77C44C3E-4825-44A7-BF15-2D4CE935FFC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C312E548-9E7D-4D5B-B2F4-E513390F5F62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C312E548-9E7D-4D5B-B2F4-E513390F5F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C312E548-9E7D-4D5B-B2F4-E513390F5F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C312E548-9E7D-4D5B-B2F4-E513390F5F62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C44C3E-4825-44A7-BF15-2D4CE935FFC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C44C3E-4825-44A7-BF15-2D4CE935FFC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C44C3E-4825-44A7-BF15-2D4CE935FFC5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{77C44C3E-4825-44A7-BF15-2D4CE935FFC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C44C3E-4825-44A7-BF15-2D4CE935FFC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C44C3E-4825-44A7-BF15-2D4CE935FFC5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2861C7C1-4C12-4466-BF5D-6A9B611215D4}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1 @@
+export const IP_SERVER = "http://localhost:5225";
