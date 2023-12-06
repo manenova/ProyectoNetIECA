@@ -24,7 +24,7 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<ProyectoNetIecaContext>();
+builder.Services.AddDbContext<IecaContext>();
 builder.Services.AddMvcCore();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

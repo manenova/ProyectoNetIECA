@@ -12,8 +12,4 @@ public partial class Materium
     public string? Descripcion { get; set; }
 
     public int? ProfesorId { get; set; }
-
-    public virtual ICollection<Calificacion> Calificacions { get; set; } = new List<Calificacion>();
-
-    public virtual Profesor? Profesor { get; set; }
 }

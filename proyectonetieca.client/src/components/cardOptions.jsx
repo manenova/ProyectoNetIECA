@@ -32,12 +32,12 @@ const CardOptions = () => {
                             <h3 className="text-xl font-semibold mb-2">{label}</h3>
                             <p className="text-gray-600">
                                 {label === 'Profesores'
-                                    ? 'Administra la información de los profesores.'
+                                    ? "Administra a los datos de profesores."
                                     : label === 'Materias'
-                                        ? 'Gestiona las materias disponibles.'
+                                        ? "Gestiona las materias disponibles."
                                         : label === 'Alumnos'
-                                            ? 'Explora y gestiona la información de los alumnos.'
-                                            : 'Consulta y administra las calificaciones.'}
+                                            ? "Explora y gestiona los datos de alumnos."
+                                            : "Consulta y administra las calificaciones."}
                             </p>
                         </div>
                     </Link>

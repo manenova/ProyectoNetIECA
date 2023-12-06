@@ -9,7 +9,6 @@ const EditModalAlumno = ({ alumnoId, isOpen, onClose, onUpdate, initialAlumnoDat
     const [grado, setGrado] = useState('');
 
     useEffect(() => {
-        // Al cargar el componente, establecer los datos iniciales del alumno en el formulario
         if (initialAlumnoData) {
             setNombre(initialAlumnoData.nombre);
             setApellido(initialAlumnoData.apellido);
@@ -28,8 +27,8 @@ const EditModalAlumno = ({ alumnoId, isOpen, onClose, onUpdate, initialAlumnoDat
                 email,
                 grado,
             });
-            onUpdate(); // Actualizar lista después de la edición
-            onClose(); // Cerrar modal
+            onUpdate();
+            onClose();
         } catch (error) {
             console.error('Error updating alumno:', error);
         }
@@ -40,7 +39,7 @@ const EditModalAlumno = ({ alumnoId, isOpen, onClose, onUpdate, initialAlumnoDat
         setApellido('');
         setEmail('');
         setGrado('');
-        onClose(); // Cerrar modal
+        onClose();
     };
     return (
         <div className={`fixed inset-0 z-50 flex items-center justify-center ${isOpen ? 'block' : 'hidden'}`}>

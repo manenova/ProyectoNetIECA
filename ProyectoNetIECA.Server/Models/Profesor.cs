@@ -16,8 +16,4 @@ public partial class Profesor
     public string? Perfil { get; set; }
 
     public string? Puesto { get; set; }
-
-    public virtual ICollection<Calificacion> Calificacions { get; set; } = new List<Calificacion>();
-
-    public virtual ICollection<Materium> Materia { get; set; } = new List<Materium>();
 }

@@ -14,6 +14,4 @@ public partial class Alumno
     public string? Email { get; set; }
 
     public string? Grado { get; set; }
-
-    public virtual ICollection<Calificacion> Calificacions { get; set; } = new List<Calificacion>();
 }

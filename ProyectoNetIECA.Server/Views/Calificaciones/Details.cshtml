@@ -16,27 +16,9 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Calificacion1)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Alumno)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Alumno.AlumnoId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Materia)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Materia.MateriaId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Profesor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Profesor.ProfesorId)
-        </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.CalificacionId">Edit</a> |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
 </div>

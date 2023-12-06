@@ -4,6 +4,7 @@ import Header from './components/header';
 import CardOptions from './components/cardOptions';
 import ViewAlumnos from './pages/ViewAlumnos';
 import ViewProfesores from './pages/ViewProfesores';
+import ViewMaterias from './pages/ViewMaterias';
 
 function App() {
    
@@ -16,7 +17,9 @@ function App() {
                 <hr></hr>
                 <Routes>
                     <Route path="/alumnos" exact element={<ViewAlumnos />} />
-                    <Route path="/profesores" exact element={<ViewProfesores/> } />
+                    <Route path="/profesores" exact element={<ViewProfesores />} />
+                    <Route path="/materias" exact element={<ViewMaterias/>} />
+
                 </Routes>
             </div>
         </BrowserRouter>

@@ -1,6 +1,0 @@
-@ProyectoNetIECA.Server_HostAddress = http://localhost:5225
-
-GET {{ProyectoNetIECA.Server_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

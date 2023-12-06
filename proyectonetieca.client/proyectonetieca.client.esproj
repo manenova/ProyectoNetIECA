@@ -11,6 +11,7 @@
   <ItemGroup>
     <Folder Include="src\components\" />
     <Folder Include="src\pages\alumnos\" />
+    <Folder Include="src\pages\materias\" />
     <Folder Include="src\pages\profesores\" />
   </ItemGroup>
 </Project>

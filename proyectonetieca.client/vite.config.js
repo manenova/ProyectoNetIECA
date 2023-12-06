@@ -63,6 +63,10 @@ export default defineConfig({
             '^/Profesores': {
                 target: 'http://localhost:5225/',
                 secure: false
+            },
+            '^/Materias': {
+                target: 'http://localhost:5225/',
+                secure: false
             }
 
 

@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash, faSchool } from '@fortawesome/free-solid-svg-icons';
 import { IP_SERVER } from "../constants";
 import axios from 'axios';
 import EditModalAlumno from './alumnos/EditModalAlumno';
 import NewModalAlumno from './alumnos/NewModalAlumno';
 import Loader from '../components/loader';
+import AssignModalMaterias from './materias/AssignModalMateria';
 
 
 function ViewAlumnos() {
     const [alumnos, setAlumnos] = useState();
     const [selectedAlumno, setSelectedAlumno] = useState(null);
+    const [assignAlumno, setAssignAlumno] = useState(null);
+
     const [newAlumno, setNewAlumno] = useState(null);
 
     useEffect(() => {
@@ -32,8 +35,14 @@ function ViewAlumnos() {
         setSelectedAlumno(alumno);
     };
 
+    const handleAssign = (alumnoId) => {
+        setAssignAlumno(alumnoId);
+    };
+
+
     const handleCloseModal = () => {
         setSelectedAlumno(null);
+        setAssignAlumno(null);
     };
 
     const handleUpdate = () => {
@@ -51,7 +60,7 @@ function ViewAlumnos() {
                         <th className="px-4 py-2">Apellido</th>
                         <th className="px-4 py-2">Email</th>
                         <th className="px-4 py-2">Grado</th>
-                        <th className="px-4 py-2">Acciones</th> {/* Columna de acciones */}
+                        <th className="px-4 py-2">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,9 +72,9 @@ function ViewAlumnos() {
                             <td className="px-4 py-2">{alumno.email}</td>
                             <td className="px-4 py-2">{alumno.grado}</td>
                             <td className="px-4 py-2 flex items-center">
-                                {/* Iconos de editar y eliminar */}
-                                <FontAwesomeIcon icon={faEdit} className="text-blue-500 cursor-pointer mr-2" onClick={() => handleEdit(alumno)} />
-                                <FontAwesomeIcon icon={faTrash} className="text-red-500 cursor-pointer" onClick={() => handleDelete(alumno.alumnoId)} />
+                                <FontAwesomeIcon icon={faEdit} className="text-blue-500 cursor-pointer mr-4" onClick={() => handleEdit(alumno)} />
+                                <FontAwesomeIcon icon={faTrash} className="text-red-500 cursor-pointer mr-4" onClick={() => handleDelete(alumno.alumnoId)} />
+                                <FontAwesomeIcon icon={faSchool} className="text-purple-500 cursor-pointer" onClick={() => handleAssign(alumno.alumnoId)} />
                             </td>
                         </tr>
                     )}
@@ -100,6 +109,16 @@ function ViewAlumnos() {
                     onUpdate={handleUpdate}
                 />
             )}
+
+            {assignAlumno && (
+                <AssignModalMaterias
+                    isOpen={setAssignAlumno !== null}
+                    onClose={() => setAssignAlumno(false)}
+                    onUpdate={handleUpdate}
+                    alumnoId={assignAlumno}
+                />
+            )}
+
            
         </div>
     );

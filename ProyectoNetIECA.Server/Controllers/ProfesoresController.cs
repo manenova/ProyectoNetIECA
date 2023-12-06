@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProyectoNetIECA.Server.Models;
 
@@ -8,9 +13,9 @@ namespace ProyectoNetIECA.Server.Controllers
     [Route("[controller]")]
     public class ProfesoresController : ControllerBase
     {
-        private readonly ProyectoNetIecaContext _context;
+        private readonly IecaContext _context;
 
-        public ProfesoresController(ProyectoNetIecaContext context)
+        public ProfesoresController(IecaContext context)
         {
             _context = context;
         }

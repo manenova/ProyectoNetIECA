@@ -17,28 +17,12 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Calificacion1)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Alumno)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Alumno.AlumnoId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Materia)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Materia.MateriaId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Profesor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Profesor.ProfesorId)
-        </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="CalificacionId" />
+        <input type="hidden" asp-for="AlumnoId" />
+        <input type="hidden" asp-for="MateriaId" />
+        <input type="hidden" asp-for="ProfesorId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

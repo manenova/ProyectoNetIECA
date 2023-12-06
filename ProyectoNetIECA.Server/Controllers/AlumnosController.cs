@@ -1,5 +1,10 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProyectoNetIECA.Server.Models;
 
@@ -9,9 +14,9 @@ namespace ProyectoNetIECA.Server.Controllers
     [Route("[controller]")]
     public class AlumnosController : ControllerBase
     {
-        private readonly ProyectoNetIecaContext _context;
+        private readonly IecaContext _context;
 
-        public AlumnosController(ProyectoNetIecaContext context)
+        public AlumnosController(IecaContext context)
         {
             _context = context;
         }
@@ -60,26 +65,8 @@ namespace ProyectoNetIECA.Server.Controllers
             {
                 return NotFound();
             }
-          
+
         }
-
-
-        //// POST: Calificaciones/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    var calificacion = await _context.Calificacions.FindAsync(id);
-        //    if (calificacion != null)
-        //    {
-        //        _context.Calificacions.Remove(calificacion);
-        //    }
-
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-        // GET: Alumnos/Details/5
 
         [HttpGet]
         [Route("details/{id:int}")]
@@ -100,7 +87,7 @@ namespace ProyectoNetIECA.Server.Controllers
             return StatusCode(StatusCodes.Status200OK, alumno);
         }
 
-  
+
         private bool AlumnoExists(int id)
         {
             return _context.Alumnos.Any(e => e.AlumnoId == id);
