@@ -17,7 +17,7 @@ const Header = () => {
                 <nav className="md:ml-auto">
                     <ul className="flex space-x-4 text-white">
                         <li>
-                            <Link to="/profesores" className="hover:underline">
+                            <Link to="/login" className="hover:underline">
                                 Iniciar Sesi&oacute;n
                             </Link>
                         </li>

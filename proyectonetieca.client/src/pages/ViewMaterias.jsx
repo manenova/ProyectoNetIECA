@@ -83,7 +83,7 @@ function ViewMaterias() {
                         <th className="px-4 py-2">Nombre</th>
                         <th className="px-4 py-2">Descripci&oacute;n</th>
                         <th className="px-4 py-2">Profesor</th>
-                        <th className="px-4 py-2">Acciones</th> {/* Columna de acciones */}
+                        <th className="px-4 py-2">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>

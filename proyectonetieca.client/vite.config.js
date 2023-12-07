@@ -67,8 +67,11 @@ export default defineConfig({
             '^/Materias': {
                 target: 'http://localhost:5225/',
                 secure: false
-            }
-
+            },
+            '^/Calificaciones/details': {
+                target: 'http://localhost:5225/',
+                secure: false
+            },
 
         },
         port: 5173,

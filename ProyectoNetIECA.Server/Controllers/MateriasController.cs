@@ -57,6 +57,7 @@ namespace ProyectoNetIECA.Server.Controllers
             {
                 Materium materia = _context.Materia.Find(id);
                 _context.Remove(materia);
+                await _context.SaveChangesAsync();
                 return StatusCode(StatusCodes.Status200OK, "ok");
             }
             else
@@ -105,6 +106,19 @@ namespace ProyectoNetIECA.Server.Controllers
 
                 return materias;
             
+        }
+
+        [HttpGet]
+        [Route("misasignaturas/{id:int}")]
+        public async Task<List<Materium>> ObtenerMateriasPorProfesor(int id)
+        {
+
+            var materiasDelProfesor = _context.Materia
+                                  .Where(materia => materia.ProfesorId == id)
+                                  .ToList();
+
+            return materiasDelProfesor;
+
         }
 
 

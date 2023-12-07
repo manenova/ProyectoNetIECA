@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash, faSchool } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash, faSchool, faUserGraduate  } from '@fortawesome/free-solid-svg-icons';
 import { IP_SERVER } from "../constants";
 import axios from 'axios';
 import EditModalAlumno from './alumnos/EditModalAlumno';
 import NewModalAlumno from './alumnos/NewModalAlumno';
 import Loader from '../components/loader';
 import AssignModalMaterias from './materias/AssignModalMateria';
+import ViewModalCalificacion from './calificaciones/ViewModalCalificacion';
+
 
 
 function ViewAlumnos() {
     const [alumnos, setAlumnos] = useState();
     const [selectedAlumno, setSelectedAlumno] = useState(null);
     const [assignAlumno, setAssignAlumno] = useState(null);
-
+    const [viewMaterias, setViewMaterias] = useState(null);
     const [newAlumno, setNewAlumno] = useState(null);
 
     useEffect(() => {
@@ -39,15 +41,21 @@ function ViewAlumnos() {
         setAssignAlumno(alumnoId);
     };
 
-
-    const handleCloseModal = () => {
-        setSelectedAlumno(null);
-        setAssignAlumno(null);
-    };
+    const handleView = (alumnoId) => {
+        setViewMaterias(alumnoId);
+    }
 
     const handleUpdate = () => {
         populateAlumnosData();
     };
+
+    const handleCloseModal = () => {
+        setSelectedAlumno(null);
+        setAssignAlumno(null);
+        setViewMaterias(null);
+    };
+
+  
 
     const contents = alumnos === undefined
         ? <Loader></Loader>
@@ -74,7 +82,8 @@ function ViewAlumnos() {
                             <td className="px-4 py-2 flex items-center">
                                 <FontAwesomeIcon icon={faEdit} className="text-blue-500 cursor-pointer mr-4" onClick={() => handleEdit(alumno)} />
                                 <FontAwesomeIcon icon={faTrash} className="text-red-500 cursor-pointer mr-4" onClick={() => handleDelete(alumno.alumnoId)} />
-                                <FontAwesomeIcon icon={faSchool} className="text-purple-500 cursor-pointer" onClick={() => handleAssign(alumno.alumnoId)} />
+                                <FontAwesomeIcon icon={faSchool} className="text-purple-500 cursor-pointer mr-4" onClick={() => handleAssign(alumno.alumnoId)} />
+                                <FontAwesomeIcon icon={faUserGraduate} className="text-green-500 cursor-pointer" onClick={() => handleView(alumno.alumnoId)} />
                             </td>
                         </tr>
                     )}
@@ -86,12 +95,13 @@ function ViewAlumnos() {
         <div className="container mx-auto">
             <h1 className="text-3xl font-semibold mt-8 mb-4">Lista de Alumnos</h1>
             <button
-                onClick={() => setNewAlumno(true)} // Función para activar la ventana modal para agregar un nuevo alumno
-                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg mt-4"
-            >
-                Agregar Nuevo Alumno
+                onClick={() => setNewAlumno(true)}
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg mt-4">
+                Nuevo Alumno
             </button>
+
             {contents}
+
             {selectedAlumno && (
                 <EditModalAlumno
                     isOpen={selectedAlumno !== null}
@@ -119,7 +129,14 @@ function ViewAlumnos() {
                 />
             )}
 
-           
+            {viewMaterias && (
+                <ViewModalCalificacion
+                    isOpen={setViewMaterias !== null}
+                    onClose={handleCloseModal}
+                    alumnoId={viewMaterias}/> 
+            )}
+
+
         </div>
     );
 

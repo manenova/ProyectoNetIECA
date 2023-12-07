@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash, faUserGraduate } from '@fortawesome/free-solid-svg-icons';
 import { IP_SERVER } from "../constants";
 import axios from 'axios';
 import EditModalProfesor from './Profesores/EditModalProfesor';
 import NewModalProfesor from './Profesores/NewModalProfesor';
 import Loader from '../components/loader';
+import ViewModalMateria from './materias/ViewModalMateria';
+
 
 function ViewProfesores() {
+
     const [Profesores, setProfesores] = useState();
     const [selectedProfesor, setSelectedProfesor] = useState(null);
     const [newProfesor, setNewProfesor] = useState(null);
+    const [viewProfesor, setViewProfesor] = useState(null);
 
     useEffect(() => {
         populateProfesoresData();
@@ -32,11 +36,16 @@ function ViewProfesores() {
 
     const handleCloseModal = () => {
         setSelectedProfesor(null);
+        setViewProfesor(null);
     };
 
     const handleUpdate = () => {
         populateProfesoresData();
     };
+
+    const handleView = (profesorId) => {
+        setViewProfesor(profesorId);
+    }
 
     const contents = Profesores === undefined
         ? <Loader></Loader>
@@ -64,8 +73,9 @@ function ViewProfesores() {
                             <td className="px-4 py-2">{Profesor.puesto}</td>
                             <td className="px-4 py-2 flex items-center">
                                 {/* Iconos de editar y eliminar */}
-                                <FontAwesomeIcon icon={faEdit} className="text-blue-500 cursor-pointer mr-2" onClick={() => handleEdit(Profesor)} />
-                                <FontAwesomeIcon icon={faTrash} className="text-red-500 cursor-pointer" onClick={() => handleDelete(Profesor.profesorId)} />
+                                <FontAwesomeIcon icon={faEdit} className="text-blue-500 cursor-pointer mr-4" onClick={() => handleEdit(Profesor)} />
+                                <FontAwesomeIcon icon={faTrash} className="text-red-500 cursor-pointer mr-4" onClick={() => handleDelete(Profesor.profesorId)} />
+                                <FontAwesomeIcon icon={faUserGraduate} className="text-green-500 cursor-pointer mr-4" onClick={() => handleView(Profesor.profesorId)} />
                             </td>
                         </tr>
                     )}
@@ -99,6 +109,14 @@ function ViewProfesores() {
                     onClose={() => setNewProfesor(false)}
                     onUpdate={handleUpdate}
                 />
+            )}
+
+
+            {viewProfesor && (
+                <ViewModalMateria
+                    isOpen={setViewProfesor !== null}
+                    onClose={handleCloseModal}
+                    profesorId={viewProfesor} />
             )}
 
         </div>
